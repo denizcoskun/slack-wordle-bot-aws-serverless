@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "API slackwordle:WordleFunction",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "${workspaceFolder}/template.yaml",
+        "logicalId": "WordleFunction"
+      },
+      "api": {
+        "path": "/wordle/guess",
+        "httpMethod": "post",
+        "payload": {
+          "json": {}
+        }
+      }
+    }
+  ]
+}

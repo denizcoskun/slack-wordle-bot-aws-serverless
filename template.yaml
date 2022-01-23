@@ -1,0 +1,73 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  slackwordle
+
+  Sample SAM Template for slackwordle
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  WordleGameTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: date
+          AttributeType: S
+      KeySchema:
+        - AttributeName: date
+          KeyType: HASH
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+  WordleGuessTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: username
+          AttributeType: S
+        - AttributeName: date
+          AttributeType: S
+      KeySchema:
+        - AttributeName: username
+          KeyType: HASH
+        - AttributeName: date
+          KeyType: RANGE
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+  SlackWordleGuessFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: wordle/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Environment:
+        Variables:
+          GUESS_TABLE: !Ref WordleGuessTable
+          GAME_TABLE: !Ref WordleGameTable
+      Architectures:
+        - x86_64
+      Policies:
+        - AmazonDynamoDBFullAccess
+        # - DynamoDBCrudPolicy:
+        #     TableName: !Ref WordleGuessTable
+        # - DynamoDBCrudPolicy:
+        #     TableName: !Ref WordleGameTable
+      Events:
+        WordleGuess:
+          Type: Api
+          Properties:
+            Path: /wordle/guess/
+            Method: post
+
+Outputs:
+  WordleApi:
+    Description: "API Gateway endpoint URL for Prod stage for Wordle function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"

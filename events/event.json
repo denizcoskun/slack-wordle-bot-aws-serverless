@@ -1,0 +1,69 @@
+{
+  "resource": "/Argo_v2_SlackCommand",
+  "path": "/Argo_v2_SlackCommand",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "application/json,*/*",
+    "Accept-Encoding": "gzip,deflate",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Host": "41853b3f72.execute-api.ap-northeast-1.amazonaws.com",
+    "User-Agent": "Slackbot 1.0 (+https://api.slack.com/robots)",
+    "X-Amzn-Trace-Id": "Root=1-5d2eb43d-e1615c40ec1fb8c03b6de700",
+    "X-Forwarded-For": "3.86.99.129",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https",
+    "X-Slack-Request-Timestamp": "1563341885",
+    "X-Slack-Signature": "v0=42800c132352c85b6bbb4e04ee2189228a8c630cd64a2e04cbf77c108af862a3"
+  },
+  "multiValueHeaders": {
+    "Accept": ["application/json,*/*"],
+    "Accept-Encoding": ["gzip,deflate"],
+    "Content-Type": ["application/x-www-form-urlencoded"],
+    "Host": ["41853b3f72.execute-api.ap-northeast-1.amazonaws.com"],
+    "User-Agent": ["Slackbot 1.0 (+https://api.slack.com/robots)"],
+    "X-Amzn-Trace-Id": ["Root=1-5d2eb43d-e1615c40ec1fb8c03b6de700"],
+    "X-Forwarded-For": ["3.86.99.129"],
+    "X-Forwarded-Port": ["443"],
+    "X-Forwarded-Proto": ["https"],
+    "X-Slack-Request-Timestamp": ["1563341885"],
+    "X-Slack-Signature": [
+      "v0=42800c132352c85b6bbb4e04ee2189228a8c630cd64a2e04cbf77c108af862a3"
+    ]
+  },
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "resourceId": "5w9e06",
+    "resourcePath": "/Argo_v2_SlackCommand",
+    "httpMethod": "POST",
+    "extendedRequestId": "c9EZpF85tjMFdVQ=",
+    "requestTime": "17/Jul/2019:05:38:05 +0000",
+    "path": "/prod/Argo_v2_SlackCommand",
+    "accountId": "151095201970",
+    "protocol": "HTTP/1.1",
+    "stage": "prod",
+    "domainPrefix": "41853b3f72",
+    "requestTimeEpoch": 1563341885760,
+    "requestId": "0d2314d3-a855-11e9-a7ae-d79cd15c4cbc",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "3.86.99.129",
+      "principalOrgId": null,
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Slackbot 1.0 (+https://api.slack.com/robots)",
+      "user": null
+    },
+    "domainName": "41853b3f72.execute-api.ap-northeast-1.amazonaws.com",
+    "apiId": "41853b3f72"
+  },
+  "body": "token=Axm8uBsJ9SVLPbGziZgBDCBs&team_id=T5D95TP5Z&team_domain=madupteam&channel_id=CH84E7HND&channel_name=tech_slack&user_id=UKTQKUCP2&user_name=aroh&command=%2Fargo&text=config+list&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FT5D95TP5Z%2F685495724146%2FTGWIg9NXUBNBpDhJ3nHaWLBR&trigger_id=696923565493.183311941203.4b5a67621bcde6f49acebb9f6abf92e1",
+  "isBase64Encoded": false
+}
