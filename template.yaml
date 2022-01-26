@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  slackwordle
+  slackwordle2
 
   Sample SAM Template for slackwordle
 
@@ -55,11 +55,10 @@ Resources:
       Architectures:
         - x86_64
       Policies:
-        - AmazonDynamoDBFullAccess
-        # - DynamoDBCrudPolicy:
-        #     TableName: !Ref WordleGuessTable
-        # - DynamoDBCrudPolicy:
-        #     TableName: !Ref WordleGameTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref WordleGuessTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref WordleGameTable
       Events:
         WordleGuess:
           Type: Api
